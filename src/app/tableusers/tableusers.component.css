@@ -1,0 +1,22 @@
+#add{
+    position: absolute;
+    background-color: rgb(33, 209, 112);
+    color:white;
+    margin-left:92%;
+    top:10px;
+    
+}
+.main-content{
+    width:100%;
+    height:100%;
+}
+#exampleModalCenterTitle{
+    margin-left:40%;
+    margin-right:auto;
+}
+
+
+mat-form-field{
+    margin-left:10px;
+    margin-right:10px;
+}

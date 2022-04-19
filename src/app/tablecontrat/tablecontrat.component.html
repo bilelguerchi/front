@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">contrat Table</h4>
+                        <button mat-mini-fab id="add" color="col-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                          </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                  <th>id contrat</th>
+                                  <th>ref</th>
+                                  <th>nom</th>
+                                  <th>projet</th>
+                                  <th>type</th>
+                                  <th>date debut</th>
+                                  <th>date Fin</th>
+                                
+                                  <th>actions</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contrat of contrats$|async" id="{{contrat._id}}">
+                                    <td>{{contrat._id}}</td>
+                                    <td>{{contrat.ref}}</td>
+                                    <td>{{contrat.nom}}</td>
+                                    <td>{{contrat.projet}}</td>
+                                    <td>{{contrat.typec}}</td>
+                                    <td>{{contrat.datedeb}}</td>
+                                    <td>{{contrat.datefin}}</td>
+                                    <td>        
+                                        <button mat-icon-button color="primary" >
+                                         <i class="fa fa-edit fa-lg"></i>
+                                    </button>
+                                        <button mat-icon-button color="warn" (click)="deleteContrat(contrat._id)">
+                                             <mat-icon>delete</mat-icon>
+                                        </button>
+                                   </td>
+                                </tr> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">ADD Contrat</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+                                    <form class="p-2">
+                                        <div class="row">
+                                           
+                                            <div class="col-md-4">
+                                                <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="ID Contrat">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="reference" type="text">
+                                                </mat-form-field>
+                                              </div>
+                                            </div>
+                                            <div class="row">
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                  <input matInput placeholder="date debut" type="date">
+                                                </mat-form-field>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="date Fin" type="date">
+                                                </mat-form-field>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="ref projet" type="text">
+                                              </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Type" type="text">
+                                              </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                              <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Name" type="text">
+                                              </mat-form-field>
+                                            </div>
+                                            
+                                        
+                                        </div>
+
+                                       
+
+                                       
+                                       
+                                       <!-- <button mat-raised-button type="submit" class="btn btn-danger pull-right">save</button>-->
+                                        <div class="clearfix"></div>
+                                    </form>
+                                
+                            
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  

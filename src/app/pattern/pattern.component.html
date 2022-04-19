@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title "> pattern</h4>
+                        <button mat-mini-fab id="add" color="col-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                          </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th> Name</th>
+                                        <th> <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="Name" type="text">
+                                            </mat-form-field>
+                                          </div>
+                                        </th>
+                                    </tr>
+                                 <tr>
+                                    <th>date de création</th>
+                                    <th>
+                                        <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="date de création" type="text">
+                                            </mat-form-field>
+                                          </div>
+                                    </th>
+                                 </tr>
+                                 <tr>
+                                    <th>description</th>
+                                    <th>
+                                        <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="description" type="text">
+                                            </mat-form-field>
+                                          </div>
+                                    </th>
+                                 </tr>
+                                  
+                                  
+                                </thead>
+                                <tbody>
+                                   
+                                    <tr>
+                                     
+                                      <div *ngFor="let value of values;">
+                                            <label> {{ value.value   }} :  </label> &nbsp;  <input   matInput type="text" placeholder=" {{ value.value   }} " disabled>
+                                           </div>
+                                     
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">ADD chomps</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form>
+  
+
+            <button type="button" (click)="addvalue()" id="ajout" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                <path
+                  d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                <path fill-rule="evenodd"
+                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+              </svg> Ajouter
+             </button>
+         
+              
+           
+         
+        
+      
+
+      
+  <h2>{{ name }}</h2>
+  <div *ngFor="let value of values; let i = index"> 
+    <input type="text"  [(ngModel)]="value.value" #name="ngModel" name="value{{i}}">
+    <button  class="btn btn-danger"      (click)="removevalue(i)"><i class="far fa-trash-alt"></i> Supprimer</button>
+    
+    
+  </div>
+  
+  
+  <h2>Result</h2>
+  <div *ngFor="let value of values;">
+   <label> {{ value.value   }} :  </label> &nbsp;  <input type="text" placeholder="entre {{ value.value   }} " disabled>
+  </div>
+       
+<!--<div *ngFor="let value of  values|async; "> 
+  <input type="text" [(ngModel)]="value.value" #name="ngModel" name="value{{i}}">
+  <button (click)="removevalue(i)">Remove</button>
+</div>
+<button (click)="addvalue()">ADD</button>
+
+<h2>Result</h2>
+<div *ngFor="let value of values;">
+  {{value.value}}
+</div>
+-->
+        </form>  
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button mat-raised-button type="submit" class="btn btn-danger pull-right">save</button>
+        </div>
+      </div>
+    </div>
+  </div>
